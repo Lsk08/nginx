@@ -1,0 +1,14 @@
+ngnix 
+deploy静态网页
+location root/alias/rewrite
+root 作为资源的本地路径 root可配置到server/location 
+优先从location匹配 匹配不到从server寻找
+
+rewrite regex new-location flag
+rewrite重写用于匹配从 host结束到 参数开始的部分 
+例如 http://seanlook.com/a/we/index.php?id=1&u=str 只对/a/we/index.php重写
+多用于同一个域名内的跳转
+
+而location可通过pass_proxy跳转到另一个域名
+
+server执行rewrite -> location匹配 -> rewrite指令 也就是rewrite之后还会进行下一个location匹配
